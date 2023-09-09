@@ -1,0 +1,29 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        
+        List<List<Integer>> result=new ArrayList<>();
+        List<Integer> row = new ArrayList<>();          //create new list row 
+        if(numRows==1){
+            row.add(numRows);
+            result.add(row.add(numRows));
+            return result;
+        }
+        for(int l=1; l<=numRows; l++){
+            for(int j=0; j<numRows-l; j++){
+                System.out.print(" ");                  // initial left spacing
+            }
+            List<Integer> row1 = new ArrayList<>();
+            int C=1;                                   //first value of rows is fixed that is 1 
+            for(int i=1; i<=l; i++){        
+                System.out.print(" "+C);
+                row1.add(C);
+               C= (C*(l-i))/i;  
+             }
+            result.add(row1);                         //print entire combine array of (row and result)
+            System.out.println(" ");
+        }
+    return result;
+    }
+}
+
+//TC =O(N^2)
