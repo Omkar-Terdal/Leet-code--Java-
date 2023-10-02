@@ -1,5 +1,5 @@
 class Solution {
-    public void nextPermutation(int[] nums) {
+    public void nextPermutation(int[] nums) { 
         int j=nums.length-1;
         int i=nums.length-2; 
         
