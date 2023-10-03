@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+//Left rotate array;
+public class Solution {
+	public static ArrayList<Integer> rotateArray(ArrayList<Integer> arr, int k) {
+        // Write your code here.
+        int n=arr.size();
+        if(k<0){        //k is negative
+            k=k+n;
+        }
+        k=k%n;     //k is greater than n
+        Collections.rotate(arr,-k); //inplace ,you can also use n-k but it will rotate right wise and -k rotate from in left side
+    return arr;
+    }
+}
