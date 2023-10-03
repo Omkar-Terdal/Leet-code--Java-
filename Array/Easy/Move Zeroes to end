@@ -3,7 +3,7 @@ class Solution {
         
         int n=nums.length;
         int i=0 ,j=0;
-
+    //shift all non zero element to beginning
         while(j<n){
             if(nums[j]!=0){
             nums[i]=nums[j];
@@ -12,6 +12,7 @@ class Solution {
             }
             j++;
         }
+//remaining all element set to zero
           while(i<n){
                 nums[i]=0;
                 i++;
