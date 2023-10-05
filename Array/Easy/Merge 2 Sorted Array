@@ -1,0 +1,33 @@
+import java.util.*;
+public class Solution {
+    public static List< Integer > sortedArray(int []a, int []b) {
+        // Write your code here
+        int n=a.length,m=b.length;
+        TreeSet <Integer> set=new TreeSet<>();
+        
+// A TreeSet in Java is a data structure that implements the Set interface and uses a tree to store its elements. The elements in a TreeSet are stored in ascending order, according to their natural ordering or a custom comparator provided at set creation time.
+// TreSets are very efficient for operations such as finding, adding, and removing elements. They are also thread-safe, meaning that they can be safely used by multiple threads at the same time.
+// TreSets are often used in applications where it is important to keep data sorted, such as:
+
+// * Maintaining a list of students in alphabetical order
+// * Storing a set of unique values, such as the unique words in a document
+// * Implementing a priority queue
+       
+
+for(int i=0; i<n; i++){
+            set.add(a[i]);
+        }
+
+        for(int i=0; i<m; i++){
+            set.add(b[i]);
+        }
+
+        List<Integer> unionArray=new ArrayList<>();
+            
+        for(int value:set){
+            unionArray.add(value);
+        }
+    return unionArray;
+    }
+
+}
