@@ -1,0 +1,21 @@
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        
+        List<List<Integer>> resList=new ArrayList<>();
+        subset(resList,new ArrayList<>(),nums,0);
+    return resList ;
+    }
+    private void subset(List<List<Integer>> resList,List<Integer> subList,int[] nums,int start){
+      
+        resList.add(new ArrayList<>(subList));
+        for(int i=start; i<nums.length; i++){
+            //with 1,2,3
+            subList.add(nums[i]);
+
+            subset(resList,subList,nums,i+1);
+            //without 1,2,3
+            subList.remove(subList.size()-1);
+        }
+    }
+
+}
