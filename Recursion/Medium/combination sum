@@ -1,0 +1,26 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> ans=new ArrayList<>();
+        List<Integer> subans=new ArrayList<>();
+        combination(ans,subans,candidates,target,0);
+        return ans;
+    }
+
+    public static void combination(List<List<Integer>> ans,List<Integer> subans,int[] candidates,int target,int index){
+        if(index==candidates.length){
+            if(target==0){
+                ans.add(new ArrayList<>(subans));
+            }
+             return;
+        }
+            if(candidates[index]<=target){
+            subans.add(candidates[index]);
+            combination(ans,subans,candidates,target-candidates[index],index); 
+            // not index + 1 because we can reuse same elements
+         
+            subans.remove(subans.size()-1);
+            }
+            combination(ans,subans,candidates,target,index+1);
+
+    }
+}
