@@ -1,0 +1,32 @@
+class Solution {
+    
+    public static String[] keypadLetter={"","","abc","def","ghi","jkl","mno","pqrs","tuv", " wxyz"};
+    public List<String> letterCombinations(String digits) {
+        List<String> ans=new ArrayList<>();
+        if(digits.length()==0){
+            return ans;
+        }
+        combination(ans,digits,0,"");
+        return ans;
+    }
+
+    
+    public static void combination(List<String> ans,String digits,int idx,String str){
+
+        if(idx==digits.length()  ){
+            ans.add(str);
+            return;
+        }
+        // char currentChar=;
+        char c=digits.charAt(idx);
+        String map=keypadLetter[c-'0'];
+
+        for(char x1:map.toCharArray()){
+            combination(ans,digits,idx+1,str+x1);
+        }
+
+
+
+    }
+
+}
