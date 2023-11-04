@@ -1,0 +1,23 @@
+class Solution {
+    public List<List<Integer>> combinationSum3(int k, int n) {
+       List<List<Integer>> ans=new ArrayList<>();
+       List<Integer> templist=new ArrayList<>();
+       int[] arr={1,2,3,4,5,6,7,8,9};
+       subset(arr,ans,templist,k,n,1);
+       return ans;
+    }
+    public static void subset(int [] arr,List<List<Integer>> ans, List<Integer> templist,int k ,int n,int idx){
+        if(templist.size()==k && n==0 ){
+            ans.add(new ArrayList<>(templist));
+        return;
+        }
+
+        for(int i=idx; i<=9; i++){
+                templist.add(i);             //i instead of arr[i] it is same as i as we increase i it same as elements in arr
+                subset(arr,ans,templist,k,n-i,i+1);
+                templist.remove(templist.size()-1);
+                // subset(arr,ans,templist,k,n-i,i+1);
+        }               
+    }
+}
+
