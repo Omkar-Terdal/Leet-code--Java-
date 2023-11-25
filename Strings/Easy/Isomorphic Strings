@@ -1,0 +1,33 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+
+            int map1[]=new int[200];
+            int map2[]=new int[200];
+
+            if(s.length()!=t.length()){
+                return false;
+            }
+            for(int i=0; i<s.length(); i++){
+                if(map1[s.charAt(i)]!=map2[t.charAt(i)]){
+                    return false;
+                 }
+                    map1[s.charAt(i)]=i+1;  //add to next index of map1
+                    map2[t.charAt(i)]=i+1;  //add to next index of map2
+                   
+//example  s = "egg", t = "add"
+// Iteration 1 (i = 0):
+// s.charAt(0) = 'e', t.charAt(0) = 'a'
+// Both map1['e'] and map2['a'] are initially 0, so we set map1['e'] = 1 and map2['a'] = 1.
+// Iteration 2 (i = 1):
+
+// s.charAt(1) = 'g', t.charAt(1) = 'd'
+// Both map1['g'] and map2['d'] are initially 0, so we set map1['g'] = 2 and map2['d'] = 2.
+// Iteration 3 (i = 2):
+
+// s.charAt(2) = 'g', t.charAt(2) = 'd'
+// Both map1['g'] and map2['d'] are 2, which matches the previous mappings.
+          
+            }      
+            return true;  
+    }
+}
