@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+        Map<Character,Integer> count=new HashMap<>();
+
+        //Count the frequency of characters in string s
+        for(char x:s.toCharArray()){
+           count.put(x,count.getOrDefault(x,0)+1);  //count: [3, 1, 0, ..., 0] increasing count
+        }
+       // Count the frequency of characters in string t
+         for(char x:t.toCharArray()){
+           count.put(x,count.getOrDefault(x,0)-1);  //count: [2, 0, 0, ..., 0] decreasing count
+        }
+        // Check if any character has non-zero frequency
+        for(int val:count.values()){
+            if(val!=0){  //equals to zero means both string has same count of character
+                return false;
+            }
+           
+        }
+        return true;   
+    }
+}
